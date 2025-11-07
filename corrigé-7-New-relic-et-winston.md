@@ -146,11 +146,88 @@ Comparaison :
 | Idéal pour le détail d’un événement | Idéal pour vue globale du service       |
 | Contextualisé (route, metadata)     | Agrégé, statistiques, slopes, anomalies |
 
-✅ L’étudiant doit mentionner la **complémentarité**.
 
----
+## Le code minimal :
 
-# 🧠 Compréhensions attendues
+```js
+// index.js
+require('newrelic');
+
+const logger = require('./logger');
+const express = require('express');
+const app = express();
+
+const PORT = process.env.PORT || 3000;
+
+// Middleware pour logger chaque requête entrante
+app.use((req, res, next) => {
+  logger.info(`Requête entrante: ${req.method} ${req.url}`);
+  next();
+});
+
+// route racine
+app.get('/', (req, res) => {
+  logger.info('Route / appelée');
+  res.send('Bonjour depuis Express + Winston !');
+});
+
+// route JSON d'exemple
+app.get('/api/hello', (req, res) => {
+  logger.info('Route /api/hello appelée');
+  res.json({ message: 'Hello API', time: new Date().toISOString() });
+});
+
+app.get('/api/test', (req, res) => {
+  logger.info('Route /api/test appelée pour test New Relic');
+  const newrelic = require('newrelic');
+
+  newrelic.addCustomAttributes({
+    routeTestTime: new Date().toISOString()
+  });
+
+  res.json({ msg: 'Route instrumentée !' });
+});
+
+app.get('/api/error', (req, res) => {
+  logger.error('Erreur simulée !');
+  throw new Error('Erreur de test New Relic !');
+});
+
+
+app.listen(PORT, () => {
+  console.log(`Serveur démarré -> http://localhost:${PORT}`);
+});
+
+```
+
+```js
+
+// logger.js
+const { createLogger, format, transports } = require('winston');
+
+const logger = createLogger({
+  level: 'info',
+  format: format.combine(
+    format.timestamp(),
+    format.json() // format lisible par des outils / stockage
+  ),
+  transports: [
+    // Affiche dans la console
+    new transports.Console(),
+
+    // Stocke dans un fichier (log applicatif)
+    new transports.File({ filename: 'app.log' })
+  ]
+});
+
+module.exports = logger;
+
+```
+
+![Aperçu de l'application](assets/screenshot.png)
+
+
+# Compréhensions attendues
 
 ### Q1 — Pourquoi `require('newrelic')` en premier ?
 
