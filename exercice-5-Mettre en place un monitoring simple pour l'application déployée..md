@@ -123,11 +123,3 @@ Votre rendu comprendra :
 1.  **Le code source** complet de votre application avec les intégrations de logging et de métriques.
 2.  **Une brève explication** (quelques paragraphes) de vos choix techniques pour le logging et l'exposition des métriques.
 3.  **Vos observations** sur le comportement de l'application sous charge, en vous basant sur les logs et les métriques collectées.
-
----
-
-### Pour aller plus loin (Optionnel)
-
-*   **Persistance des logs :** Configurez le logging pour écrire dans un fichier en plus de la console.
-*   **Format de métriques standard :** Recherchez des formats de métriques plus standards comme Prometheus Text Format et essayez de l'implémenter pour l'endpoint `/metrics`.
-*   **Visualisation simple :** Si vous avez des compétences en frontend, créez une page HTML simple qui rafraîchit et affiche les métriques de `/metrics` de manière graphique.

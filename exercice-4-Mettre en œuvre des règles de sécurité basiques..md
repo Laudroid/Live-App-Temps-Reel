@@ -111,27 +111,3 @@ Pour ce TP, nous allons privilégier la simplicité pour nous concentrer sur la 
 *   Le code source complet de votre application (backend et frontend).
 *   Un fichier `README.md` expliquant comment lancer l'application et décrivant les choix techniques majeurs concernant la sécurité.
 *   (Optionnel) Une courte vidéo ou des captures d'écran montrant l'application en fonctionnement et les différents scénarios de sécurité testés.
-
-### Conseils pour l'utilisation de l'IA
-
-L'IA est un outil formidable pour vous aider dans ce TP. Utilisez-la intelligemment :
-
-*   **Génération de squelettes :** Demandez-lui de générer la structure de base d'un serveur Express, d'un middleware JWT, ou d'un client Socket.IO.
-*   **Explication de concepts :** Si un concept (comme le hachage de mot de passe, le fonctionnement d'un JWT, ou la gestion des WebSockets) n'est pas clair, demandez des explications ou des exemples.
-*   **Débogage :** Si vous rencontrez une erreur, copiez le message d'erreur et le code pertinent à l'IA pour obtenir des pistes de résolution.
-*   **Refactoring et bonnes pratiques :** Demandez-lui des suggestions pour améliorer la clarté ou la robustesse de votre code.
-
-**Important :** Le but de ce TP est votre apprentissage. Ne vous contentez pas de copier-coller des solutions complètes sans les comprendre. Chaque ligne de code doit avoir un sens pour vous. Utilisez l'IA comme un assistant, pas comme un remplaçant de votre propre réflexion.
-
-### Critères d'Évaluation
-
-*   **Fonctionnalité :** L'application de base fonctionne-t-elle comme prévu (création, lecture, modification, suppression de notes, mise à jour temps réel) ?
-*   **Respect des règles de sécurité :**
-    *   L'authentification est-elle correctement implémentée (inscription, connexion, JWT) ?
-    *   Les règles d'autorisation sont-elles respectées (seuls les authentifiés écrivent, seul le propriétaire modifie/supprime) ?
-*   **Qualité du code :** Le code est-il lisible, bien structuré et commenté ?
-*   **Compréhension :** Le `README.md` démontre-t-il une bonne compréhension des mécanismes de sécurité mis en place ?
-
----
-
-Bon courage pour ce TP ! C'est une excellente occasion de solidifier vos compétences en développement d'applications sécurisées et en temps réel.
